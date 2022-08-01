@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.range-input {
+  height: 25px;
+  width: 65px;
+  border-radius: 20px;
+  cursor: pointer;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #5a6069;
+}
+.range-input::-webkit-slider-thumb {
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #fff;
+  border: 2px solid #5a6069;
+  background-size: 300px;
+  -webkit-appearance: none;
+}
+
+.scrollbar-orange::-webkit-scrollbar {
+  width: 10px;
+}
+.scrollbar-orange::-webkit-scrollbar-track {
+  background-color: #5a6069;
+  border-radius: 50px;
+}
+.scrollbar-orange::-webkit-scrollbar-thumb {
+  @apply bg-orange;
+  border-radius: 50px;
+}
+
+.bg-black-hover {
+  @apply hover:bg-black-200 transition-colors self-center py-3 px-3.5 rounded-full p-2 cursor-pointer;
+}
