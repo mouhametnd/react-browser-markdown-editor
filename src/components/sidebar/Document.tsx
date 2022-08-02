@@ -3,7 +3,7 @@ import DocumentSvg from '../../assets/svgs/DocumentSvg';
 
 const Document = () => {
   return (
-    <div className="flex content-center gap-3 hover:bg-gray-600 w-72 mx-auto pl-5 rounded-md py-1.5 cursor-pointer">
+    <div className="flex content-center gap-3 hover:bg-gray-600 w-full mx-auto pl-5 rounded-md py-1.5 cursor-pointer">
       <DocumentSvg className="self-center" />
       <div>
         <time className="font-light text-gray-300 text-base">April 5, 2022</time>

@@ -36,3 +36,13 @@
 .bg-black-hover {
   @apply hover:bg-black-200 transition-colors self-center py-3 px-3.5 rounded-full p-2 cursor-pointer;
 }
+
+.sidebar-transition {
+  transition: transform 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+
+
+  
+}
+svg.svg-fill-white {
+  @apply fill-white-100;
+}

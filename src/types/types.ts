@@ -5,5 +5,13 @@ interface HasClassName {
 interface HasChildren {
   children?: ReactNode;
 }
+interface IStore {
+  asideOpen: {
+    isAsideOpen: boolean;
+  };
+  theme: {
+    isDarkTheme: boolean;
+  };
+}
 
-export type { HasClassName, HasChildren };
+export type { HasClassName, HasChildren, IStore };
