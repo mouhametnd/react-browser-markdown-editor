@@ -14,7 +14,7 @@ const Hamburger = () => {
     <div className="bg-gray-400 w-[75px] py-2">
       <button
         onClick={handleClick}
-        className={`hamburger hamburger--emphatic hover:opacity-70 transition-opacity ${isAsideOpen && 'is-active'} `}
+        className={`hamburger hamburger--emphatic hover:opacity-70 transition-opacity ${isAsideOpen ? 'is-active' : ' translate-x-0'} `}
         type="button"
       >
         <span className="hamburger-box hamburger__span">

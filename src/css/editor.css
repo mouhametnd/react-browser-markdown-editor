@@ -1,0 +1,153 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.editor-right {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 24px;
+  padding-bottom: 55px;
+}
+
+.editor-right h1,
+.editor-right h2,
+.editor-right h3,
+.editor-right h4,
+.editor-right h5,
+.editor-right h6,
+.editor-right p {
+  @apply mb-[20px];
+}
+
+.editor-right h1,
+.editor-right h2,
+.editor-right h3,
+.editor-right h4,
+.editor-right h5,
+.editor-right h6,
+.editor-right blockquote p {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  @apply text-black-0 dark:text-white-100;
+}
+.dark h6 {
+  color: white !important;
+}
+h6 {
+  color: black !important;
+}
+
+.editor-right li {
+  @apply dark:text-gray-200 text-black-0;
+}
+
+.editor-right div > * {
+  margin-bottom: 20px;
+}
+.editor-right h1 {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 42px;
+}
+.editor-right h2 {
+  font-weight: 300;
+  font-size: 28px;
+  line-height: 37px;
+}
+.editor-right h3 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 32px;
+}
+.editor-right h4 {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 26px;
+}
+.editor-right h5 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 21px;
+}
+.editor-right h6 {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 18px;
+  @apply dark:text-gray-300;
+}
+.editor-right p {
+  @apply dark:text-gray-300;
+}
+.editor-right ol {
+  padding-right: 24px;
+  list-style: initial;
+  @apply ml-[32px];
+}
+.editor-right ul {
+  padding-right: 24px;
+  @apply ml-[32px];
+}
+
+.editor-right ul,
+.editor-right ol,
+.editor-right code {
+  @apply mt-[14px] mb-[20px];
+}
+
+.editor-right ul li {
+  list-style: disc;
+}
+.editor-right ol li {
+  list-style: decimal;
+}
+.editor-right li::marker {
+  @apply text-orange;
+}
+
+.editor-right blockquote p {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 24px;
+  border-radius: 4px;
+  padding: 24px;
+  border-left: 4px solid;
+
+  @apply border-orange dark:text-white-100 text-black-0 dark:bg-gray-500 bg-white-200;
+}
+.editor-right pre {
+  background-color: var(--color-200);
+  color: var(--color-700);
+  padding: 24px;
+  border-radius: 4px;
+  @apply dark:text-white-100 text-black-0 dark:bg-gray-400 bg-white-200;
+}
+.editor-right pre p {
+  color: var(--color-700);
+}
+
+/*  DARK THEME */
+[data-theme='dark'] .editor-header {
+  background-color: var(--color-900);
+  color: var(--color-400);
+}
+
+[data-theme='dark'] .mde-text,
+[data-theme='dark'] .react-mde-wrapper {
+  background-color: var(--color-1000);
+  color: var(--color-400);
+}
+[data-theme='dark'] .editor-right blockquote p {
+  background-color: var(--color-800);
+  color: var(--color-100);
+}
+[data-theme='dark'] .editor-right blockquote p a {
+  color: var(--color-100);
+}
+[data-theme='dark'] .editor-right :is(h1, h2, h3, h4, h5, h6) {
+  color: var(--color-100);
+}
+[data-theme='dark'] .mde-text {
+  border-right: 1px solid var(--color-600);
+}

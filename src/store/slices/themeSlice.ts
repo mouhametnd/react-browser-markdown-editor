@@ -1,18 +1,19 @@
 import { createSlice } from '@reduxjs/toolkit';
 import getCurrentTheme from '../../functions/getCurrentTheme';
-import setValueToLS from '../../functions/setValueToLS';
+import setDataToLS from '../../functions/setDataToLS';
 
 interface toggleThemePayload {
   payload: boolean;
   type: string;
 }
 
+
 const themeSlice = createSlice({
   name: 'theme',
   initialState: { isDarkTheme: getCurrentTheme() },
   reducers: {
     toggleTheme: (_, { payload }: toggleThemePayload) => {
-      setValueToLS('isDarkTheme', payload);
+      setDataToLS('isDarkTheme', payload);
       return { isDarkTheme: payload };
     },
   },

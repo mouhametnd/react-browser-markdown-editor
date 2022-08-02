@@ -12,7 +12,7 @@ const EditorSide = ({ children, title }: IEditorSideProps) => {
         {title}
       </span>
       <div
-        className={`dark:bg-black-400 bg-white-100  w-full h-full border-solid border-r-gray-700 min-h-[80vh] px-4 py-4 transition-colors `}
+        className={`dark:bg-black-400 bg-white-100  w-full h-full border-solid border-r-gray-700 min-h-[80vh] px-4 py-4 transition-colors pt-16 `}
       >
         {children}
       </div>

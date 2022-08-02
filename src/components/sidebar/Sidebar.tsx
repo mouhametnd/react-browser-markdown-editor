@@ -1,7 +1,8 @@
 import { useSelector, useStore } from 'react-redux';
 import ThemeToggle from '../ThemeToggle';
 import CreateDocumentButton from './CreateDocumentButton';
-import Document from './Document';
+import Document from './DocumentItem';
+import DocumentList from './DocumentList';
 
 
 const Sidebar = () => {
@@ -18,36 +19,7 @@ const Sidebar = () => {
 
       <div className="flex flex-col gap-5 content-center">
         <CreateDocumentButton />
-        <ul className="scrollbar-orange flex flex-col gap-3 max-h-[350px] md:max-h-[500px] overflow-y-auto">
-          <li>
-            <Document />
-          </li>{' '}
-          <li>
-            <Document />
-          </li>{' '}
-          <li>
-            <Document />
-          </li>{' '}
-          <li>
-            <Document />
-          </li>{' '}
-          <li>
-            <Document />
-          </li>{' '}
-          <li>
-            <Document />
-          </li>{' '}
-          <li>
-            <Document />
-          </li>
-          <li>
-            <Document />
-          </li>
-          <li>
-            <Document />
-          </li>
-          <Document />
-        </ul>
+        <DocumentList/>
       </div>
 
       <ThemeToggle className="mt-auto " />

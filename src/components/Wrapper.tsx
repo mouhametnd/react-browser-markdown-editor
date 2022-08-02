@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { HasChildren, IStore } from '../types/types';
 
-const showSidebar = (isAsideOpen: boolean) => (isAsideOpen && 'translate-x-[250px]' )
+const showSidebar = (isAsideOpen: boolean) => (isAsideOpen ? 'relative left-[250px]' : ' left-[0px]' )
 
 
 const Wrapper = ({ children }: HasChildren) => {
