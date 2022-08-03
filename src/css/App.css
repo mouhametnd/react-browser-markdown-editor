@@ -37,12 +37,11 @@
   @apply hover:bg-black-200 transition-colors self-center py-3 px-3.5 rounded-full p-2 cursor-pointer;
 }
 
-
 svg.svg-fill-white {
   @apply fill-white-100;
 }
 
-li.selected-document{
+li.selected-document {
   @apply bg-black-200 hover:bg-black-200;
 }
 

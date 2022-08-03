@@ -1,14 +1,16 @@
 import parser from 'html-react-parser';
-import '../../css/editor.css'
+import '../../css/editor.css';
 import { useSelector } from 'react-redux';
-import { IStore } from '../../types/types';
+import { IHideEditorLeft, IStore } from '../../types/types';
 import EditorSide from './EditorSide';
 
-const EditorRight = () => {
+const EditorRight = ({ hideEditorLeft }: IHideEditorLeft) => {
   const { html } = useSelector(state => state as IStore).content;
   return (
-    <EditorSide title="PREVIEW" >
-      <div id="ouput-html" className='editor-right'>{parser(html)}</div>
+    <EditorSide title="PREVIEW">
+      <div id="ouput-html" className={` mdmax:${hideEditorLeft || 'hidden'}  editor-right max-w-[1024px] mx-auto`}>
+        {parser(html)}
+      </div>
     </EditorSide>
   );
 };

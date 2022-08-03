@@ -1,9 +1,12 @@
 interface HasChildren {
   children: React.ReactNode;
 }
+interface IProps extends HasChildren {
+  handleClick: () => void;
+}
 
-const ButtonBox = ({ children }: HasChildren) => {
-  return <button className="bg-orange w-12 h-12 hover:bg-orange/70 transition-colors self-center flex rounded-md">{children}</button>;
+const ButtonBox = ({ children,handleClick }: IProps) => {
+  return <button onClick={handleClick} className="bg-orange w-12 h-12 hover:bg-orange/70 transition-colors self-center flex rounded-md">{children}</button>;
 };
 
 export default ButtonBox;

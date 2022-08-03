@@ -34,12 +34,20 @@ type TDocumentState = Draft<IDocumentSlice>;
 
 type TDocumentSliceReducers<T extends { type: string }> = (state: TDocumentState, payload: T) => IDocumentSlice;
 
+interface IHideEditorLeft {
+  hideEditorLeft: boolean;
+}
+
 interface IRenameDocumentPayload {
   newName: string;
   document: IDocument;
 }
 
-type TUseSelectedDocumentReturnArray = [string, Dispatch<React.SetStateAction<string>>] 
+type TUseSelectedDocumentReturnArray = [string, Dispatch<React.SetStateAction<string>>];
+
+interface ISaveDocumentState {
+  isSaved: boolean;
+}
 
 interface IStore {
   asideOpen: {
@@ -51,6 +59,7 @@ interface IStore {
   document: IDocumentSlice;
   selectedDocument: IDocument;
   content: IContent;
+  saveDocument: ISaveDocumentState;
 }
 
 export type {
@@ -65,4 +74,6 @@ export type {
   TDocumentSliceReducers,
   IRenameDocumentPayload,
   TUseSelectedDocumentReturnArray,
+  IHideEditorLeft,
+  ISaveDocumentState,
 };

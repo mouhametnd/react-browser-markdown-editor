@@ -9,6 +9,7 @@
   font-size: 14px;
   line-height: 24px;
   padding-bottom: 55px;
+  justify-content: center;
 }
 
 .editor-right h1,
@@ -96,6 +97,10 @@ h6 {
   @apply mt-[14px] mb-[20px];
 }
 
+.editor-right pre{
+  @apply pr-36
+}
+
 .editor-right ul li {
   list-style: disc;
 }
@@ -121,33 +126,8 @@ h6 {
   color: var(--color-700);
   padding: 24px;
   border-radius: 4px;
-  @apply dark:text-white-100 text-black-0 dark:bg-gray-400 bg-white-200;
+  @apply dark:text-white-100 text-black-0 dark:bg-gray-400 bg-white-200 text-ellipsis overflow-hidden;
 }
 .editor-right pre p {
   color: var(--color-700);
-}
-
-/*  DARK THEME */
-[data-theme='dark'] .editor-header {
-  background-color: var(--color-900);
-  color: var(--color-400);
-}
-
-[data-theme='dark'] .mde-text,
-[data-theme='dark'] .react-mde-wrapper {
-  background-color: var(--color-1000);
-  color: var(--color-400);
-}
-[data-theme='dark'] .editor-right blockquote p {
-  background-color: var(--color-800);
-  color: var(--color-100);
-}
-[data-theme='dark'] .editor-right blockquote p a {
-  color: var(--color-100);
-}
-[data-theme='dark'] .editor-right :is(h1, h2, h3, h4, h5, h6) {
-  color: var(--color-100);
-}
-[data-theme='dark'] .mde-text {
-  border-right: 1px solid var(--color-600);
 }

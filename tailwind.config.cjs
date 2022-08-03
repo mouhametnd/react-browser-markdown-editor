@@ -8,6 +8,10 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
+      screens: {
+        mdmax: { max: '767px' },
+        // => @media (max-width: 767px) { ... }
+      },
       purge: ['./src/**/*.{js,jsx,ts,tsx}', './index.html'],
       fontFamily: {
         Pri: ['Roboto', 'sans-serif'],
