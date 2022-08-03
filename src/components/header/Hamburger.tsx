@@ -1,4 +1,4 @@
-import { useDispatch, useSelector, useStore } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import '../../css/hamburger.css';
 import { asideOpenActions } from '../../store/slices/asideOpenSlice';
 import { IStore } from '../../types/types';

@@ -1,23 +1,27 @@
 import { createSlice } from '@reduxjs/toolkit';
 import getDataFromLS from '../../functions/getDataFromLS';
+import getLastDocumentFromLS from '../../functions/getLastDocumentFromLS';
 import { IDocument, IDocumentSlice } from '../../types/types';
+import { documentSliceActions } from './document/documentSlice';
 
-type TInitialState = null | IDocument;
+type TInitialState = IDocument;
 
 interface IAction {
-  payload: IDocument | null;
+  payload: IDocument;
   type: string;
 }
 
-const document = getDataFromLS<IDocumentSlice>('document')?.documents?.at(0) || null;
-
-const initialState: TInitialState = document;
+const initialState: TInitialState = getLastDocumentFromLS();
 
 const selectedDocumentSlice = createSlice({
   name: 'selectedDocument',
   initialState,
   reducers: {
-    setSelectedDocument: (_, { payload }: IAction) => payload
+    setSelectedDocument: (_, { payload }: IAction) => payload,
+  },
+  extraReducers: {
+    'document/deleteDocument': () => getLastDocumentFromLS(),
+    'document/createDocument': () => getLastDocumentFromLS(),
   },
 });
 

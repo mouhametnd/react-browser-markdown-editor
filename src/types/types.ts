@@ -1,4 +1,5 @@
-import { ReactNode } from 'react';
+import { Draft } from '@reduxjs/toolkit';
+import { Dispatch, ReactNode } from 'react';
 interface HasClassName {
   className?: string;
 }
@@ -29,6 +30,17 @@ interface IContent {
   md: string;
   html: string;
 }
+type TDocumentState = Draft<IDocumentSlice>;
+
+type TDocumentSliceReducers<T extends { type: string }> = (state: TDocumentState, payload: T) => IDocumentSlice;
+
+interface IRenameDocumentPayload {
+  newName: string;
+  document: IDocument;
+}
+
+type TUseSelectedDocumentReturnArray = [string, Dispatch<React.SetStateAction<string>>] 
+
 interface IStore {
   asideOpen: {
     isAsideOpen: boolean;
@@ -37,10 +49,20 @@ interface IStore {
     isDarkTheme: boolean;
   };
   document: IDocumentSlice;
-  selectedDocument: IDocument ;
+  selectedDocument: IDocument;
   content: IContent;
 }
 
-
-
-export type { HasClassName, HasChildren, IStore, IDocument, IDocumentSlice, ICreateDocumentAction,IContent };
+export type {
+  HasClassName,
+  HasChildren,
+  IStore,
+  IDocument,
+  IDocumentSlice,
+  ICreateDocumentAction,
+  IContent,
+  TDocumentState,
+  TDocumentSliceReducers,
+  IRenameDocumentPayload,
+  TUseSelectedDocumentReturnArray,
+};

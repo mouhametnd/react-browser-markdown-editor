@@ -1,25 +1,38 @@
-import { Dispatch, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
+import setRenameDocument from '../functions/setRenameDocument';
 import setTextareaContent from '../functions/setTextareaContent';
-import { IStore } from '../types/types';
+import { IDocument, IStore, TUseSelectedDocumentReturnArray } from '../types/types';
 
-const useSelectedDocument = (prop: 'name' | 'content'): [string, Dispatch<React.SetStateAction<string>>] => {
+type TUseSelectedDocument = (a: 'name' | 'content' | 'all') => TUseSelectedDocumentReturnArray | IDocument;
+
+const useSelectedDocument: TUseSelectedDocument = prop => {
   const selectedDocument = useSelector(state => state as IStore).selectedDocument;
 
-  const [value, setValue] = useState(selectedDocument[prop]);
+  if (prop === 'all') {
+    return selectedDocument;
+  }
 
-  console.log(selectedDocument);
-
-  useEffect(() => {
-    if (prop !== 'content') return;
-    setTextareaContent(value);
-  }, [value]);
+  const [propValue, setPropValue] = useState(selectedDocument[prop]);
 
   useEffect(() => {
-    setValue(selectedDocument[prop]);
+    if (prop === 'content') return setTextareaContent(propValue);
+
+    if (prop === 'name') {
+      propValue.trim()
+        ? setRenameDocument({ newName: propValue, document: selectedDocument })
+        : setPropValue(selectedDocument.name);
+      return;
+    }
+  }, [propValue]);
+
+  useEffect(() => {
+    setPropValue(selectedDocument[prop]);
+
+    
   }, [selectedDocument]);
 
-  return [value, setValue];
+  return [propValue, setPropValue];
 };
 
 export default useSelectedDocument;

@@ -1,4 +1,3 @@
-import React from 'react';
 
 import EditorLeft from './EditorLeft';
 import EditorRight from './EditorRight';

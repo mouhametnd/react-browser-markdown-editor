@@ -15,7 +15,6 @@ const DocumentItem = ({ document, selectedDocumentId }: IProps) => {
   const { date, name, id } = document;
   const dispatch = useDispatch();
 
-  console.log(selectedDocumentId);
 
   const handleClick = () => {
     if (selectedDocumentId !== id) dispatch(setSelectedDocument(document));

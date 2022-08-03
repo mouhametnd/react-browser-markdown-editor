@@ -1,27 +1,24 @@
-import { FormEventHandler, useState } from 'react';
+import { FormEventHandler } from 'react';
 import { useDispatch } from 'react-redux';
 import useInputValidation from '../../hooks/useInputValidation';
-import { documentSliceActions } from '../../store/slices/DocumentSlice';
+import useModal from '../../hooks/useModal';
+import { documentSliceActions } from '../../store/slices/document/documentSlice';
 import ErrorMessage from '../others/ErrorMessage';
 import ModalWrapper from '../others/ModalWrapper';
 
 const { createDocument } = documentSliceActions;
 const CreateDocumentButton = () => {
   const dispatch = useDispatch();
-  const [shouldOpen, setShouldOpen] = useState(false);
-  const openModal = () => setShouldOpen(true);
-  const closeModal = () => {
-    validator(null);
-    setShouldOpen(false);
-  };
+  const closeModalCb = () => validator(null);
   const succeedCb = () => {
     const $input = document.getElementById('document-name-input') as HTMLInputElement;
     dispatch(createDocument({ name: $input.value }));
     $input.value = '';
     closeModal();
   };
-  const [isValid, validator] = useInputValidation(succeedCb);
-
+  const [shouldOpen, openModal, closeModal] = useModal({ closeModalCb });
+  const [isValid, validator] = useInputValidation({ succeedCb });
+  
   const handleSubmit: FormEventHandler<HTMLFormElement> = e => {
     e.preventDefault();
     const $input = e.currentTarget.querySelector('input') as HTMLInputElement;
@@ -32,7 +29,7 @@ const CreateDocumentButton = () => {
     <>
       <ModalWrapper
         shouldOpen={shouldOpen}
-        closeModal={closeModal}
+        closeCb={closeModal}
         title="Enter The Document Name"
         description="Enter the name of the document on the input field. You can then rename it using the menu input. "
       >
@@ -46,6 +43,7 @@ const CreateDocumentButton = () => {
           <input
             id="document-name-input"
             type="text"
+            autoComplete="off"
             className="w-full p-2 outline-none bg-orange text-white-100 text-xs border-none rounded-md pl-5 placeholder:text-white-100 flex-grow"
             placeholder="Document Name..."
           />
@@ -54,7 +52,7 @@ const CreateDocumentButton = () => {
           </button>
         </form>
       </ModalWrapper>
-      <button onClick={openModal} className="bg-orange text-white-100 w-full py-3 font-semibold rounded-md mx-auto">
+      <button onClick={openModal} className="bg-orange text-white-100 w-full py-3 font-medium rounded-md mx-auto">
         + New Document
       </button>
     </>

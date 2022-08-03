@@ -8,8 +8,6 @@ const setTextareaContent = (content: string) => {
   const converter = new showdown.Converter();
   const html = converter.makeHtml(content);
   dispatch(setContent({ md: content, html }));
-
-  console.log(html)
 };
 
 export default setTextareaContent;
