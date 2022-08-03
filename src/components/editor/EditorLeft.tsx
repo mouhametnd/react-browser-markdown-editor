@@ -1,11 +1,11 @@
 import { ChangeEventHandler, useState } from 'react';
-import setTextareaContent from '../../functions/setTextareaContent';
 import useSelectedDocument from '../../hooks/useSelectedDocument';
 import { IHideEditorLeft, TUseSelectedDocumentReturnArray } from '../../types/types';
 import EditorSide from './EditorSide';
 
 
 const EditorLeft = ({ hideEditorLeft }: IHideEditorLeft) => {
+  
   const [value, setValue] = useSelectedDocument('content') as TUseSelectedDocumentReturnArray;
   const handleChange: ChangeEventHandler<HTMLTextAreaElement> = e => setValue(e.target.value);
 

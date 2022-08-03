@@ -3,22 +3,25 @@ import Check from '../../assets/svgs/CheckSvg';
 import ButtonBox from '../others/ButtonBox';
 import { useDispatch, useSelector } from 'react-redux';
 import { IDocument, IStore } from '../../types/types';
-import { saveDocumentSliceActions } from '../../store/slices/saveDocumentSlice';
-import setDataToLS from '../../functions/setDataToLS';
+import { isDocumentSavedSliceActions } from '../../store/slices/isDocumentSavedSlice';
 import useSelectedDocument from '../../hooks/useSelectedDocument';
-import getDocumentById from '../../functions/getDocumentByid';
+import { documentSliceActions } from '../../store/slices/document/documentSlice';
 
-const { saveDocument: saveDocumentAction } = saveDocumentSliceActions;
+const { saveDocumentContent } = documentSliceActions;
+const { setIsDocumentSaved } = isDocumentSavedSliceActions;
+
 const SaveDocumentButton = () => {
   const dispatch = useDispatch();
-  const { saveDocument, document, content } = useSelector(state => state as IStore);
-  const { isSaved } = saveDocument;
   const selectedDocument = useSelectedDocument('all') as IDocument;
+
+  const { isDocumentSaved, content } = useSelector(state => state as IStore);
+  const { isSaved } = isDocumentSaved;
   
 
   const handleClick = () => {
     if (!isSaved) {
-      dispatch(saveDocumentAction({ selectedDocument, document, mdContent: content.md }));
+      dispatch(saveDocumentContent({ document: selectedDocument, newContent: content.md }));
+      dispatch(setIsDocumentSaved(true));
     }
   };
 

@@ -42,10 +42,14 @@ interface IRenameDocumentPayload {
   newName: string;
   document: IDocument;
 }
+interface ISaveDocumentContentPayload {
+  newContent: string;
+  document: IDocument;
+}
 
 type TUseSelectedDocumentReturnArray = [string, Dispatch<React.SetStateAction<string>>];
 
-interface ISaveDocumentState {
+interface IIsDocumentStateSaved {
   isSaved: boolean;
 }
 
@@ -59,7 +63,7 @@ interface IStore {
   document: IDocumentSlice;
   selectedDocument: IDocument;
   content: IContent;
-  saveDocument: ISaveDocumentState;
+  isDocumentSaved: IIsDocumentStateSaved;
 }
 
 export type {
@@ -75,5 +79,6 @@ export type {
   IRenameDocumentPayload,
   TUseSelectedDocumentReturnArray,
   IHideEditorLeft,
-  ISaveDocumentState,
+  IIsDocumentStateSaved,
+  ISaveDocumentContentPayload,
 };

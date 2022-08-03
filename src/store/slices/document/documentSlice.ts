@@ -6,6 +6,7 @@ import createDocumentReducer from './createDocumentReducer';
 import renameDocumentReducer from './renameDocumentReducer';
 import deleteDocumentReducer from './deleteDocumentReducer';
 import getDataFromLS from '../../../functions/getDataFromLS';
+import changeDocumentContentReducer from './saveDocumentContent';
 
 let initialState: IDocumentSlice = {
   documents: [...initialData],
@@ -23,6 +24,7 @@ const documentSlice = createSlice({
     createDocument: createDocumentReducer,
     renameDocument: renameDocumentReducer,
     deleteDocument: deleteDocumentReducer,
+    saveDocumentContent: changeDocumentContentReducer
   },
 });
 
