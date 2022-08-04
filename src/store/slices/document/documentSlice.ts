@@ -15,9 +15,7 @@ let initialState: IDocumentSlice = {
 const dataFromLS = getDataFromLS('document');
 dataFromLS ? (initialState = dataFromLS) : setDataToLS('document', initialState);
 
-initialState = {
-  documents: [...initialData],
-};
+
 
 const documentSlice = createSlice({
   name: 'document',
