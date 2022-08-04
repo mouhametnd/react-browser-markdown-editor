@@ -1,15 +1,14 @@
+import { CaseReducer } from '@reduxjs/toolkit';
 import getDocumentById from '../../../functions/getDocumentByid';
 import setDataToLS from '../../../functions/setDataToLS';
-import { IDocument, TDocumentSliceReducers } from '../../../types/types';
+import { IDocument, IDocumentSlice } from '../../../types/types';
 
 interface IAction {
   type: string;
   payload: { id: string };
 }
 
-type TDeleteDocumentReducer = TDocumentSliceReducers<IAction>;
-
-const deleteDocumentReducer: TDeleteDocumentReducer = (state, { payload }) => {
+const deleteDocumentReducer: CaseReducer<IDocumentSlice, IAction> = (state, { payload }) => {
   const { id } = payload;
   const { documents } = state;
 

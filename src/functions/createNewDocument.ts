@@ -1,9 +1,10 @@
 import { nanoid } from 'nanoid';
 
-const createNewDocument = (name: string, content?: string  )=> ({
+const createNewDocument = (name: string, content?: string) => ({
   id: nanoid(),
   name: name,
   date: Date.now(),
-  content : content || '',
+  content: content || '',
+  isSaved: false,
 });
 export default createNewDocument;

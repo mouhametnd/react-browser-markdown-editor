@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import setRenameDocument from '../functions/setRenameDocument';
 import setTextareaContent from '../functions/setTextareaContent';
-import { isDocumentSavedSliceActions } from '../store/slices/isDocumentSavedSlice';
+import { selectedDocumentSliceActions } from '../store/slices/selectedDocumentSlice';
 import { IDocument, IStore, TUseSelectedDocumentReturnArray } from '../types/types';
 
 type TUseSelectedDocument = (a: 'name' | 'content' | 'all') => TUseSelectedDocumentReturnArray | IDocument;
 
-const { setIsDocumentSaved } = isDocumentSavedSliceActions;
+const { setSelectedDocument } = selectedDocumentSliceActions;
 
 const useSelectedDocument: TUseSelectedDocument = prop => {
   const dispatch = useDispatch();
@@ -20,18 +20,19 @@ const useSelectedDocument: TUseSelectedDocument = prop => {
   const [propValue, setPropValue] = useState(selectedDocument[prop]);
 
   useEffect(() => {
-    // set new date
+    const payload = {
+      ...selectedDocument,
+      date: Date.now(),
+      [prop]: propValue,
+      isSaved: prop === 'content' ? selectedDocument.content === propValue : selectedDocument.isSaved,
+    };
+    dispatch(setSelectedDocument(payload));
+    
+    if (prop === 'content') return setTextareaContent(propValue);
 
-    if (prop === 'content') {
-      dispatch(setIsDocumentSaved(false));
-      return setTextareaContent(propValue);
-    }
-
-    if (prop === 'name') {
-      propValue.trim()
-        ? setRenameDocument({ newName: propValue, document: selectedDocument })
-        : setPropValue(selectedDocument.name);
-    }
+    propValue.trim()
+      ? setRenameDocument({ newName: propValue, document: selectedDocument })
+      : setPropValue(selectedDocument.name);
   }, [propValue]);
 
   useEffect(() => {

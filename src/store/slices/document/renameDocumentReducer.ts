@@ -1,18 +1,16 @@
-import first from '../../../functions/changeDocumentProp';
-import getDocumentById from '../../../functions/getDocumentByid';
+import changeDocumentProp from '../../../functions/changeDocumentProp';
+import { CaseReducer } from '@reduxjs/toolkit';
 import setDataToLS from '../../../functions/setDataToLS';
-import { IRenameDocumentPayload, TDocumentSliceReducers, TDocumentState } from '../../../types/types';
+import { IDocumentSlice, IRenameDocumentPayload, TDocumentState } from '../../../types/types';
 
 interface IAction {
   type: string;
   payload: IRenameDocumentPayload;
 }
 
-type TRenameDocumentReducer = TDocumentSliceReducers<IAction>;
-
-const renameDocumentReducer: TRenameDocumentReducer = (state: TDocumentState, { payload }) => {
+const renameDocumentReducer: CaseReducer<IDocumentSlice, IAction> = (state: TDocumentState, { payload }) => {
   const { document, newName } = payload;
-  first({ state, document, prop: 'name', newValue: newName });
+  changeDocumentProp({ state, document, prop: 'name', newValue: newName });
 
   setDataToLS('document', state);
   return state;

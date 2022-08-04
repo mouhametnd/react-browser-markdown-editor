@@ -8,6 +8,7 @@ import useSelectedDocument from '../../hooks/useSelectedDocument';
 import { documentSliceActions } from '../../store/slices/document/documentSlice';
 import { IDocument, IDocumentSlice, IStore } from '../../types/types';
 import ModalWrapper from '../others/ModalWrapper';
+import NormalButton from '../others/NormalButton';
 
 const { deleteDocument } = documentSliceActions;
 
@@ -34,12 +35,7 @@ const DeleteDocument = () => {
         shouldOpen={shouldOpen}
         closeCb={closeModal}
       >
-        <button
-          onClick={deleteDocumentClick}
-          className="text-white-100 bg-orange rounded-md py-2 hover:bg-orange/80 transition-colors font-light"
-        >
-          Confirm & Delete
-        </button>
+        <NormalButton handleClick={deleteDocumentClick}>Confirm & Delete</NormalButton>
       </ModalWrapper>
     </>
   );

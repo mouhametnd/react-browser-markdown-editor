@@ -16,15 +16,15 @@ dataFromLS ? (initialState = dataFromLS) : setDataToLS('document', initialState)
 
 const documentSlice = createSlice({
   name: 'document',
-  // initialState,
-  initialState: {
-    documents: [...initialData],
-  },
+  initialState,
+  // initialState: {
+  //   documents: [...initialData],
+  // },
   reducers: {
     createDocument: createDocumentReducer,
     renameDocument: renameDocumentReducer,
     deleteDocument: deleteDocumentReducer,
-    saveDocumentContent: changeDocumentContentReducer
+    saveDocumentContent: changeDocumentContentReducer,
   },
 });
 

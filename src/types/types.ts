@@ -12,6 +12,7 @@ interface IDocument {
   name: string;
   date: number;
   content: string;
+  isSaved: boolean | null;
 }
 
 interface IDocumentSlice {

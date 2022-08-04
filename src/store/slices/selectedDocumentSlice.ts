@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import getDataFromLS from '../../functions/getDataFromLS';
 import getLastDocumentFromLS from '../../functions/getLastDocumentFromLS';
 import { IDocument, IDocumentSlice } from '../../types/types';
+import store from '../store';
 import { documentSliceActions } from './document/documentSlice';
 
 type TInitialState = IDocument;
