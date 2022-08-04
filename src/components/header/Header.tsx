@@ -1,4 +1,4 @@
-import CopyDocument from '../others/CopyDocument';
+import CopyDocument from '../others/CopyDocumentButton';
 import DownloadDocumentButton from '../others/DownloadDocumentButton';
 import DeleteDocumentButton from './DeleteDocumentButton';
 import DocumentName from './DocumentName';

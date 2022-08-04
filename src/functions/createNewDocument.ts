@@ -1,9 +1,10 @@
 import { nanoid } from 'nanoid';
+import { IDocument } from '../types/types';
 
-const createNewDocument = (name: string, content?: string) => ({
+const createNewDocument = (name: string, content?: string): IDocument => ({
   id: nanoid(),
   name: name,
-  date: Date.now(),
+  created: Date.now(),
   content: content || '',
   isSaved: false,
 });

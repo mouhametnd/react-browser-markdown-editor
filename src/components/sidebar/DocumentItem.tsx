@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const DocumentItem = ({ document, selectedDocumentId, handleClickCb }: IProps) => {
-  const { date, name, id } = document;
+  const { created, name, id } = document;
 
   return (
     <li
@@ -21,7 +21,7 @@ const DocumentItem = ({ document, selectedDocumentId, handleClickCb }: IProps) =
     >
       <DocumentSvg className="self-center" />
       <div className="pointer-events-none">
-        <time className="font-light text-gray-300 text-base">{getDateFormated(date)}</time>
+        <time className="font-light text-gray-300 text-base">{getDateFormated(created)}</time>
         <h3 className="text-base text-white-100 tracking-wide font-medium">{name}</h3>
       </div>
     </li>

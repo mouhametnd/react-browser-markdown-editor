@@ -47,6 +47,7 @@ const DocumentList = () => {
           />
         ))}
       </ul>
+      
       <ModalWrapper
         title="Leave this document?"
         description={`Are you sure you want to leave the unsaved "${currentDoc?.name}" document and its contents? This action cannot be reversed.`}

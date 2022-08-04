@@ -12,6 +12,10 @@
   justify-content: center;
 }
 
+.coping::selection {
+  @apply selection:bg-transparent;
+}
+
 .editor-right h1,
 .editor-right h2,
 .editor-right h3,
@@ -97,8 +101,8 @@ h6 {
   @apply mt-[14px] mb-[20px];
 }
 
-.editor-right pre{
-  @apply pr-36
+.editor-right pre {
+  @apply pr-36;
 }
 
 .editor-right ul li {

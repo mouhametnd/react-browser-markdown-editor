@@ -10,9 +10,9 @@ interface HasChildren {
 interface IDocument {
   id: string;
   name: string;
-  date: number;
+  created: number;
   content: string;
-  isSaved: boolean | null;
+  isSaved: boolean ;
 }
 
 interface IDocumentSlice {
@@ -50,9 +50,6 @@ interface ISaveDocumentContentPayload {
 
 type TUseSelectedDocumentReturnArray = [string, Dispatch<React.SetStateAction<string>>];
 
-interface IIsDocumentStateSaved {
-  isSaved: boolean;
-}
 
 interface IStore {
   asideOpen: {
@@ -64,7 +61,6 @@ interface IStore {
   document: IDocumentSlice;
   selectedDocument: IDocument;
   content: IContent;
-  isDocumentSaved: IIsDocumentStateSaved;
 }
 
 export type {
@@ -80,6 +76,5 @@ export type {
   IRenameDocumentPayload,
   TUseSelectedDocumentReturnArray,
   IHideEditorLeft,
-  IIsDocumentStateSaved,
   ISaveDocumentContentPayload,
 };
