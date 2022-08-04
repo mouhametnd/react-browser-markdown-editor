@@ -1,4 +1,3 @@
-// import setDataToLS from '../../../functions/setDataToLS';
 import setDataToLS from '../../../functions/setDataToLS';
 import { TDocumentSliceReducers } from '../../../types/types';
 

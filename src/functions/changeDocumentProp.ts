@@ -16,7 +16,6 @@ const changeDocumentProp: TSignature = ({ state, document, prop, newValue }) => 
   const newDocumentChanged = { ...documentRef, [prop]: newValue };
 
   documents.splice(documents.indexOf(documentRef), 1, newDocumentChanged);
-
   return newDocumentChanged;
 };
 

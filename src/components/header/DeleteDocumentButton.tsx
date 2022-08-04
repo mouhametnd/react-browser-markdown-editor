@@ -1,12 +1,10 @@
-import { KeyboardEventHandler } from 'react';
 import { useDispatch } from 'react-redux';
 import DeleteSvg from '../../assets/svgs/DeleteSvg';
 import getDataFromLS from '../../functions/getDataFromLS';
-import getLastDocumentFromLS from '../../functions/getLastDocumentFromLS';
 import useModal from '../../hooks/useModal';
 import useSelectedDocument from '../../hooks/useSelectedDocument';
 import { documentSliceActions } from '../../store/slices/document/documentSlice';
-import { IDocument, IDocumentSlice, IStore } from '../../types/types';
+import { IDocument } from '../../types/types';
 import ModalWrapper from '../others/ModalWrapper';
 import NormalButton from '../others/NormalButton';
 
@@ -18,9 +16,8 @@ const DeleteDocument = () => {
   const [shouldOpen, openModal, closeModal] = useModal({});
 
   const deleteDocumentClick = () => {
-    const document = getDataFromLS<IDocumentSlice>('document');
+    const document = getDataFromLS('document');
     if (document && document.documents.length > 1) dispatch(deleteDocument({ id }));
-
     closeModal();
   };
 

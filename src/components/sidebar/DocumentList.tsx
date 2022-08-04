@@ -13,17 +13,17 @@ const { setSelectedDocument } = selectedDocumentSliceActions;
 const DocumentList = () => {
   const dispatch = useDispatch();
   const [isOpen, openModal, closeModal] = useModal({});
-  const [nextDoc, setNextDoc] = useState<IDocument | null>(null);
-  const [currentDoc, setCurrentDocument] = useState<IDocument | null>(null);
-
   const { document, selectedDocument } = useSelector(state => state as IStore);
   const { documents } = document;
 
+  const [nextDoc, setNextDoc] = useState<IDocument | null>(null);
+  const [currentDoc, setCurrentDocument] = useState<IDocument | null>(null);
+  
+
   const docNavigation = (document: IDocument) => {
     const currentSelectedDoc = store.getState().selectedDocument;
-
+  
     if (currentSelectedDoc.id === document.id) return;
-
     if (currentSelectedDoc.isSaved) return dispatch(setSelectedDocument(document));
 
     setNextDoc(document);
@@ -35,6 +35,7 @@ const DocumentList = () => {
     dispatch(setSelectedDocument(nextDoc as IDocument));
     closeModal();
   };
+  
   return (
     <>
       <ul className="scrollbar-orange flex flex-col gap-3 max-h-[350px] md:max-h-[500px] overflow-y-auto">
@@ -47,7 +48,7 @@ const DocumentList = () => {
           />
         ))}
       </ul>
-      
+
       <ModalWrapper
         title="Leave this document?"
         description={`Are you sure you want to leave the unsaved "${currentDoc?.name}" document and its contents? This action cannot be reversed.`}

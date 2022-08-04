@@ -2,10 +2,10 @@ import React from 'react';
 import CloseSvg from '../../assets/svgs/CloseSvg';
 
 interface ICardProps {
-  title?: string;
-  description?: string;
+  title: string;
+  description: string;
   children: React.ReactNode;
-  closeCb?: () => void;
+  closeCb: () => void;
 }
 
 const Card = ({ children, description, title, closeCb }: ICardProps) => {
@@ -15,8 +15,11 @@ const Card = ({ children, description, title, closeCb }: ICardProps) => {
         <CloseSvg />
       </button>
 
-      <h4 className="dark:text-white-100 text-black-0 font-Sec text-xl font-semibold text-center pt-6 tracking-wide">{title}</h4>
+      <h4 className="dark:text-white-100 text-black-0 font-Sec text-xl font-semibold text-center pt-6 tracking-wide">
+        {title}
+      </h4>
       <p className="font-Sec text-gray-200 font-normal text-sm text-center ">{description}</p>
+      
       {children}
     </div>
   );

@@ -1,7 +1,5 @@
-import { useSelector, useStore } from 'react-redux';
 import ThemeToggle from '../ThemeToggle';
 import CreateDocumentButton from './CreateDocumentButton';
-import Document from './DocumentItem';
 import DocumentList from './DocumentList';
 
 

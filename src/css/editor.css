@@ -25,6 +25,14 @@
 .editor-right p {
   @apply mb-[20px];
 }
+.editor-right a {
+  @apply underline dark:decoration-white-200 dark:text-white-100 text-black-0 decoration-black-0 font-normal dark:font-light;
+}
+
+#output-html p code {
+  @apply dark:text-gray-100 text-black-0 font-bold
+}
+
 
 .editor-right h1,
 .editor-right h2,

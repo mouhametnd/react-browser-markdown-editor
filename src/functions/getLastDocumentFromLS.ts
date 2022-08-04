@@ -1,9 +1,6 @@
-import { IDocument, IDocumentSlice } from "../types/types";
-import getDataFromLS from "./getDataFromLS";
+import { IDocument } from '../types/types';
+import getDataFromLS from './getDataFromLS';
 
-const getLastDocumentFromLS = () => { 
-  const document = getDataFromLS<IDocumentSlice>('document')?.documents?.at(0) as IDocument;
+const getLastDocumentFromLS = () => getDataFromLS('document')?.documents?.at(0) as IDocument;
 
-  return document;
- }
- export default getLastDocumentFromLS;
+export default getLastDocumentFromLS;

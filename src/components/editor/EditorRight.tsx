@@ -8,7 +8,7 @@ const EditorRight = ({ hideEditorLeft }: IHideEditorLeft) => {
   const { html } = useSelector(state => state as IStore).content;
   return (
     <EditorSide title="PREVIEW">
-      <div id="ouput-html" className={` mdmax:${hideEditorLeft || 'hidden'}  editor-right max-w-[1024px] mx-auto`}>
+      <div id="output-html" className={` mdmax:${hideEditorLeft || 'hidden'}  editor-right max-w-[1024px] mx-auto`}>
         {parser(html)}
       </div>
     </EditorSide>

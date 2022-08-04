@@ -1,8 +1,6 @@
-import {} from 'react';
 import DocumentSvg from '../../assets/svgs/DocumentSvg';
 import getDateFormated from '../../functions/getDateFormated';
 import { IDocument } from '../../types/types';
-
 interface IProps {
   document: IDocument;
   selectedDocumentId: string | null;

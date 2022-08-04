@@ -6,7 +6,7 @@ import { selectedDocumentSliceReducer } from './slices/selectedDocumentSlice';
 import { themeSliceReducer } from './slices/themeSlice';
 
 
-const store = configureStore({
+const store = configureStore({  
   reducer: {
     asideOpen: asideOpenReducer,
     theme: themeSliceReducer,

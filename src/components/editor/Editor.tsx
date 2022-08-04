@@ -7,7 +7,6 @@ const Editor = () => {
   const [hideEditorLeft, setHideEditorLeft] = useState(false);
   const toggleClick = () => setHideEditorLeft(prevState => !prevState);
 
-
   return (
     <section className={`${!hideEditorLeft && 'grid-cols-2'} relative md:grid gap-0 pt-[76px] `}>
       <EditorViewToggle className="fixed right-3 top-[84px] z-50" handleClick={toggleClick} hideEditorLeft={hideEditorLeft}  />

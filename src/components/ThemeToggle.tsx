@@ -6,16 +6,12 @@ import { ChangeEventHandler } from 'react';
 
 const ThemeToggle = ({ className }: HasClassName) => {
   const [isDarkTheme, changeInputValue, setTheme] = useTheme();
-
-  const handleChange: ChangeEventHandler<HTMLInputElement> = e => {
-    const value = !!e.target.valueAsNumber;
-    setTheme(value);
-  };
+  const handleChange: ChangeEventHandler<HTMLInputElement> = e => setTheme(!!e.target.valueAsNumber);
 
   return (
     <div className={className + ' flex flex-row gap-1'}>
       <button onClick={() => changeInputValue(false)}>
-        <LightModeSvg className={` fill-gray-300  self-center ${!isDarkTheme && 'svg-fill-white'}`} />
+        <LightModeSvg className={` fill-gray-300  self-center ${isDarkTheme || 'svg-fill-white'}`} />
       </button>
 
       <input type="range" max={1} className="range-input" onChange={handleChange} />

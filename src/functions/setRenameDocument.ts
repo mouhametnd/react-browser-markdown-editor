@@ -4,8 +4,6 @@ import { IRenameDocumentPayload } from '../types/types';
 
 const { renameDocument } = documentSliceActions;
 const dispatch = store.dispatch;
-const setRenameDocument = (payload: IRenameDocumentPayload) => {
-  dispatch(renameDocument(payload));
-};
+const setRenameDocument = (payload: IRenameDocumentPayload) => dispatch(renameDocument(payload));
 
 export default setRenameDocument;

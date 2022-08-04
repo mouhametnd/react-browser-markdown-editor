@@ -1,19 +1,19 @@
-import React, { Children } from 'react'
+import React from 'react';
 
 interface IProps {
-  handleClick : () => void;
-  children :React.ReactNode;
+  handleClick: () => void;
+  children: React.ReactNode;
 }
 
-const NormalButton = ({handleClick, children}:IProps) => {
+const NormalButton = ({ handleClick, children }: IProps) => {
   return (
     <button
-    onClick={handleClick}
-    className="text-white-100 bg-orange rounded-md py-2 hover:bg-orange/80 transition-colors font-light"
-  >
-{children}
-  </button>
-  )
-}
+      onClick={handleClick}
+      className="text-white-100 bg-orange rounded-md py-2 hover:bg-orange/80 transition-colors font-light"
+    >
+      {children}
+    </button>
+  );
+};
 
-export default NormalButton
+export default NormalButton;

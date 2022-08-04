@@ -1,11 +1,14 @@
 import { CaseReducer } from '@reduxjs/toolkit';
 import changeDocumentProp from '../../../functions/changeDocumentProp';
 import setDataToLS from '../../../functions/setDataToLS';
-import { IDocumentSlice, ISaveDocumentContentPayload, TDocumentState } from '../../../types/types';
+import { IDocument, IDocumentSlice, TDocumentState } from '../../../types/types';
 
 interface IAction {
   type: string;
-  payload: ISaveDocumentContentPayload;
+  payload: {
+    newContent: string;
+    document: IDocument;
+  };
 }
 
 const saveDocumentContentReducer: CaseReducer<IDocumentSlice, IAction> = (state: TDocumentState, { payload }) => {

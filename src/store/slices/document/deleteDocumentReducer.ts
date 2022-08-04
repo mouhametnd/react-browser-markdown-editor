@@ -13,7 +13,6 @@ const deleteDocumentReducer: CaseReducer<IDocumentSlice, IAction> = (state, { pa
   const { documents } = state;
 
   const documentRef = getDocumentById(id, documents) as IDocument;
-
   documents.splice(documents.indexOf(documentRef), 1);
 
   setDataToLS('document', state);

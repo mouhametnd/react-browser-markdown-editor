@@ -6,25 +6,16 @@ interface HasClassName {
 interface HasChildren {
   children?: ReactNode;
 }
-
 interface IDocument {
   id: string;
   name: string;
   created: number;
   content: string;
-  isSaved: boolean ;
+  isSaved: boolean;
 }
 
 interface IDocumentSlice {
   documents: IDocument[];
-}
-
-interface ICreateDocumentAction {
-  type: string;
-  payload: {
-    name: string;
-    content?: string;
-  };
 }
 
 interface IContent {
@@ -38,18 +29,12 @@ type TDocumentSliceReducers<T extends { type: string }> = (state: TDocumentState
 interface IHideEditorLeft {
   hideEditorLeft: boolean;
 }
-
 interface IRenameDocumentPayload {
   newName: string;
   document: IDocument;
 }
-interface ISaveDocumentContentPayload {
-  newContent: string;
-  document: IDocument;
-}
 
 type TUseSelectedDocumentReturnArray = [string, Dispatch<React.SetStateAction<string>>];
-
 
 interface IStore {
   asideOpen: {
@@ -63,18 +48,22 @@ interface IStore {
   content: IContent;
 }
 
+type TDataStorage = {
+  isDarkTheme: boolean;
+  document: IDocumentSlice;
+};
+
 export type {
   HasClassName,
   HasChildren,
   IStore,
   IDocument,
   IDocumentSlice,
-  ICreateDocumentAction,
   IContent,
   TDocumentState,
   TDocumentSliceReducers,
   IRenameDocumentPayload,
   TUseSelectedDocumentReturnArray,
   IHideEditorLeft,
-  ISaveDocumentContentPayload,
+  TDataStorage,
 };

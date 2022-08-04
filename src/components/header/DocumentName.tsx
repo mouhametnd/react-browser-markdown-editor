@@ -5,17 +5,15 @@ import useSelectedDocument from '../../hooks/useSelectedDocument';
 import { TUseSelectedDocumentReturnArray } from '../../types/types';
 
 const DocumentName = () => {
-  const [nameValue, setNameValue] = useSelectedDocument('name') as TUseSelectedDocumentReturnArray;
-  
+  const [nameValue, setNameValue] = useSelectedDocument('name') as TUseSelectedDocumentReturnArray;  
   const [inputValue, setInputValue] = useState(nameValue);
 
   const succeedCb = (value: string) => setNameValue(value);
   const rejectedCb = (value: string) => setNameValue(value);
-
+  
   const [_, validator] = useInputValidation({ succeedCb, rejectedCb });
 
   const handleBlur: FocusEventHandler<HTMLInputElement> = e => validator(e.target.value);
-
   const handleChange: ChangeEventHandler<HTMLInputElement> = e => setInputValue(e.target.value);
 
   useEffect(() => {

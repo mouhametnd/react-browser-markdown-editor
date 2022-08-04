@@ -7,7 +7,6 @@ interface toggleThemePayload {
   type: string;
 }
 
-
 const themeSlice = createSlice({
   name: 'theme',
   initialState: { isDarkTheme: getCurrentTheme() },

@@ -9,14 +9,15 @@ import ModalWrapper from '../others/ModalWrapper';
 const { createDocument } = documentSliceActions;
 const CreateDocumentButton = () => {
   const dispatch = useDispatch();
-  const closeModalCb = () => validator(null);
+
   const succeedCb = () => {
     const $input = document.getElementById('document-name-input') as HTMLInputElement;
     dispatch(createDocument({ name: $input.value }));
     $input.value = '';
     closeModal();
   };
-  const [shouldOpen, openModal, closeModal] = useModal({ closeModalCb });
+  
+  const [shouldOpen, openModal, closeModal] = useModal({ closeModalCb: () => validator(null) });
   const [isValid, validator] = useInputValidation({ succeedCb });
   
   const handleSubmit: FormEventHandler<HTMLFormElement> = e => {
@@ -52,6 +53,7 @@ const CreateDocumentButton = () => {
           </button>
         </form>
       </ModalWrapper>
+      
       <button onClick={openModal} className="bg-orange text-white-100 w-full py-3 font-medium rounded-md mx-auto">
         + New Document
       </button>

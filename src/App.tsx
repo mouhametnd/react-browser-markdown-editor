@@ -9,9 +9,7 @@ function App() {
     <Wrapper>
       <Header />
       <Sidebar />
-      {/* <EditorHeader/> */}
       <Editor />
-
     </Wrapper>
   );
 }

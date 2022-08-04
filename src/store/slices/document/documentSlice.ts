@@ -8,12 +8,16 @@ import deleteDocumentReducer from './deleteDocumentReducer';
 import getDataFromLS from '../../../functions/getDataFromLS';
 import changeDocumentContentReducer from './saveDocumentContent';
 
-
 let initialState: IDocumentSlice = {
   documents: [...initialData],
 };
-const dataFromLS = getDataFromLS<IDocumentSlice>('document');
+
+const dataFromLS = getDataFromLS('document');
 dataFromLS ? (initialState = dataFromLS) : setDataToLS('document', initialState);
+
+initialState = {
+  documents: [...initialData],
+};
 
 const documentSlice = createSlice({
   name: 'document',

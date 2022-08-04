@@ -1,12 +1,11 @@
-import React from 'react';
 import Card from './Card';
 
 interface IModalProps {
   children: React.ReactNode;
-  title?: string;
-  description?: string;
-  closeCb?: () => void;
-  shouldOpen?: boolean;
+  title: string;
+  description: string;
+  closeCb: () => void;
+  shouldOpen: boolean;
 }
 
 const ModalWrapper = (props: IModalProps) => {
